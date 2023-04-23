@@ -1,0 +1,25 @@
+#include<stdio.h>
+#include<string.h>
+
+typedef struct list
+{
+	char item[30];
+	int price;
+};
+void input(list b[]);
+void output();
+
+int main()
+{
+	struct list items[10];
+	int i=0;
+	do{
+		printf("ITEM %d: ",)
+	}while(1);
+	input(items);
+}
+
+void input(list b[])
+{
+	b->
+}

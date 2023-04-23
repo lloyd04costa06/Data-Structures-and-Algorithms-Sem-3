@@ -1,0 +1,65 @@
+#include<stdio.h>
+#include<stdlib.h>
+int n; //Number of items
+float total=0;
+//Structure 
+typedef struct
+{
+	char item[20];
+	int quantity;
+	int price;
+}shpList;
+
+//function decalartions
+void inputElements(shpList *list);
+void outputList(shpList *list);
+
+
+int main()
+{
+	//Input N and dymanamically reserve space
+	printf("ENTER NUMBER OF ITEMS\n");
+    scanf("%d",&n);
+    shpList *list= (shpList*)malloc(n*sizeof(shpList));
+    
+    //Function Calls
+    inputElements(list);
+    outputList(list);
+}
+
+
+
+void inputElements(shpList *list)
+{
+	int i;
+	//Input Item details
+	printf("ENTER YOUR ITEM NAME\n");
+	for(i=0;i<n;i++)
+	{
+		printf("ITEM %d: ",	i+1);
+		scanf("%s",&list->item);
+		printf("QUANTITY: ");
+		scanf("%d",&list->quantity);
+		printf("PRICE: ");
+		scanf("%d",&list->price);
+		total+=(list->price*list->quantity);
+		list++;
+		printf("\n");	
+	}
+}
+
+void outputList(shpList *list)
+{
+	//Output Item details
+	int i;
+	printf("\n********************SHOPPING LIST***********************\n");
+	
+		printf("SERIAL NO.\tITEM\t\tQUANTITY\tPRICE\n");
+	for(i=0;i<n;i++)
+	{
+		printf("%d \t\t%s\t\t%5.d\t%12.d",i+1,list->item,list->quantity,list->price);
+		list++;	
+		printf("\n");
+	}
+	printf("\t\t\t\t\t  TOTAL: %0.2f\n",total); //Overall Total
+}

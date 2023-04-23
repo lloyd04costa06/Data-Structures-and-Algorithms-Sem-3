@@ -1,0 +1,61 @@
+#include<iostream.h>
+#include<string.h>
+#include<fstream>
+#include<iomanip.h>
+using namespace std;
+int n;
+class telephone
+{
+	string name;
+	long long int phNo;
+	
+	public: 
+	
+	void input()
+	{
+		cout<<"ENTER THE NAME: ";
+        cin.ignore();
+		getline(cin,name);
+		cout<<"ENTER THE PHONE NUMBER: ";
+		cin>>phNo;
+	}
+	
+	void display()
+	{
+		cout<<"   ";
+		cout.width(35);
+		cout.setf(ios::left,ios::adjustfield);
+		cout<<name;
+		cout.width(10);
+		cout<<phNo;
+		cout<<endl;
+	}
+};
+ ostream  &design(ostream &output)
+ {
+     output<<"  --------------------------------------------------"<<endl;
+ 	output.width(35);
+	output.setf(ios::left,ios::adjustfield);
+ 	output<<"       NAME";
+ 	output.width(11);
+	 output<<"PHONE NUMBER";
+	 output<<endl;
+     output<<"  --------------------------------------------------"<<endl;
+     return output;
+ }
+ 
+  int main()
+ {
+ 	telephone *dir;
+     int i,choice,y,temp;
+     string c;
+     fstream file;
+     cout<<design;
+            file.open("TELEPHONE.DAT",ios::in,ios::beg);
+            for(i=0;i<n;i++)
+             {
+                   file.read((char *)&dir[i],sizeof(dir[i]));
+                    dir[i].display();
+             }
+               file.close();
+ }

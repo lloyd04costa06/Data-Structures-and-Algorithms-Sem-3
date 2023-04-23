@@ -1,0 +1,9 @@
+/*Write a program to perform following operations in threaded binary threaded
+1) insert a node
+2) delete
+3) display
+
+write a program to form tracersals in threaded binary search threaded
+1) Inorder
+2) Preorder
+3) Order Postorder*/

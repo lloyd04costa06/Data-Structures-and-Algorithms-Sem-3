@@ -1,0 +1,58 @@
+#include<stdio.h>
+int c=0;
+int reversee(int arr[],int a, int b)
+{
+	
+	int temp;
+	if(a>b)
+	return 0;
+	else
+	{
+		
+		temp=arr[a];
+		arr[a]=arr[b];
+		arr[b]=temp;
+		reversee(arr,a+1,b-1);
+	}
+		
+}
+
+int sum(int a[],int start, int end)
+{
+	if(start>=end)
+	return 0;
+	else
+	return(a[start]+sum(a,start+1,end));
+}
+
+int main()
+{
+	int a[50],n,i,p;
+	printf("ENTER NUMBER OF ELEMENTS YOUR ARRAY\n");
+	scanf("%d",&n);
+	
+	
+	printf("ENTER ELEMENTS INTO THE ARRAY\n");
+	for(i=0;i<n;i++)
+	{
+			scanf("%d",&a[i]);
+	}
+
+	
+
+	printf("\nBEFORE REVERSING\n");
+	for(i=0;i<n;i++)
+	printf("%d\t",a[i]);
+	
+	reversee(a,0,n-1);
+	
+	printf("\nAFTER REVERSING THE ELEMENTS OF THE ARRAY\n");
+	
+	for(i=0;i<n;i++)
+	printf("%d\t",a[i]);
+	
+	
+	p=sum(a,0,n);
+	printf("\nSUM = %d\n",p);
+	
+}
